@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		64790B8B2F8141BD00F5D707 /* AppStoreServerLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 64790B8A2F8141BD00F5D707 /* AppStoreServerLibrary */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		64790B7A2F81405E00F5D707 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64790B8B2F8141BD00F5D707 /* AppStoreServerLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +84,7 @@
 			);
 			name = "appstore-tool";
 			packageProductDependencies = (
+				64790B8A2F8141BD00F5D707 /* AppStoreServerLibrary */,
 			);
 			productName = "appstore-tool";
 			productReference = 64790B7C2F81405E00F5D707 /* appstore-tool */;
@@ -108,6 +114,9 @@
 			);
 			mainGroup = 64790B732F81405E00F5D707;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				64790B892F8141BD00F5D707 /* XCRemoteSwiftPackageReference "app-store-server-library-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 64790B7D2F81405E00F5D707 /* Products */;
 			projectDirPath = "";
@@ -297,6 +306,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		64790B892F8141BD00F5D707 /* XCRemoteSwiftPackageReference "app-store-server-library-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/app-store-server-library-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		64790B8A2F8141BD00F5D707 /* AppStoreServerLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64790B892F8141BD00F5D707 /* XCRemoteSwiftPackageReference "app-store-server-library-swift" */;
+			productName = AppStoreServerLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 64790B742F81405E00F5D707 /* Project object */;
 }
