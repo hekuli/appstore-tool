@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		64790B7C2F81405E00F5D707 /* appstore-tool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "appstore-tool"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64790B862F81411800F5D707 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +45,7 @@
 		64790B732F81405E00F5D707 = {
 			isa = PBXGroup;
 			children = (
+				64790B862F81411800F5D707 /* README.md */,
 				64790B7E2F81405E00F5D707 /* appstore-tool */,
 				64790B7D2F81405E00F5D707 /* Products */,
 			);
