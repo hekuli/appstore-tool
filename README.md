@@ -1,8 +1,12 @@
 # appstore-tool
 
-A read-only CLI for querying the Apple App Store Server API -- transactions, subscriptions, refunds, and customer data.
+Apple provides an API for querying App Store transaction data, but no tools to actually use it. App Store Connect shows high-level sales and trends, not individual transactions. There is no built-in way to look up a specific purchase, inspect a customer's subscription history, check refund details, or browse server notifications -- short of building your own integration from scratch.
 
-Built on Apple's [app-store-server-library-swift](https://github.com/apple/app-store-server-library-swift).
+This became cumbersome while supporting my app, [Chromatose](https://www.chromatose.app).
+
+**appstore-tool** is a free, open-source CLI that connects directly to the [App Store Server API](https://developer.apple.com/documentation/appstoreserverapi) and lets you query all of this from the command line. No server required, no third-party service, no subscription fees.
+
+Built on Apple's official [app-store-server-library-swift](https://github.com/apple/app-store-server-library-swift).
 
 ## Getting Started
 
@@ -239,6 +243,17 @@ Requires Xcode with Swift 6 (uses Xcode-managed SPM dependencies).
 ```
 
 The executable is placed at `./bin/appstore-tool`.
+
+## Not Yet Implemented
+
+The following App Store Server API capabilities are available but not yet exposed:
+
+- Extend subscription renewal dates (individual and mass)
+- Send consumption information (for refund decisioning)
+- Request and check test notifications
+- Look up app transaction info by `appAccountToken`
+
+These are write/mutation operations and were intentionally excluded from the initial read-only release.
 
 ## License
 
