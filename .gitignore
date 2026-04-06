@@ -1,0 +1,9 @@
+.DS_Store
+DerivedData/
+bin/
+*.xcuserstate
+xcuserdata/
+.envrc
+.env
+*.p8
+.claude/settings.local.json

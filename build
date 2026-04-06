@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euo pipefail
+
+SCHEME="appstore-tool"
+PROJECT="appstore-tool.xcodeproj"
+CONFIG="${1:-Release}"
+
+echo "Building $SCHEME ($CONFIG)..."
+xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIG" build 2>&1 | tail -3
+
+PRODUCTS_DIR=$(xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIG" -showBuildSettings 2>/dev/null \
+  | grep -m1 'BUILT_PRODUCTS_DIR' | awk '{print $3}')
+
+mkdir -p bin
+cp "$PRODUCTS_DIR/$SCHEME" bin/$SCHEME
+echo "Built: bin/$SCHEME"
