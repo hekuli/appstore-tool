@@ -4,42 +4,17 @@ A read-only CLI for querying the Apple App Store Server API -- transactions, sub
 
 Built on Apple's [app-store-server-library-swift](https://github.com/apple/app-store-server-library-swift).
 
-## Build
-
-Requires Xcode with Swift 6 (uses Xcode-managed SPM dependencies).
-
-```bash
-./build           # Release build, copies executable to ./bin/appstore-tool
-./build Debug     # Debug build
-```
-
-The executable is placed at `./bin/appstore-tool`.
-
 ## Getting Started
+
+Download the latest release.
 
 Run the interactive setup to configure credentials and download Apple root certificates:
 
 ```bash
-./bin/appstore-tool config
+appstore-tool config
 ```
 
 This walks you through each required setting with step-by-step instructions, saves everything to `~/.appstore-tool/config`, downloads Apple root certificates to `~/.appstore-tool/certs/`, and optionally installs shell completions.
-
-## Configuration
-
-Settings resolve in order: **CLI flags > environment variables > stored config** (`~/.appstore-tool/config`).
-
-| Setting      | Flag                 | Env Var            | Description                                         |
-|--------------|----------------------|--------------------|-----------------------------------------------------|
-| Key path     | `--key-path, -k`     | `AST_KEY_PATH`     | Path to `.p8` private key file (required)            |
-| Key ID       | `--key-id`           | `AST_KEY_ID`       | API Key ID (required)                                |
-| Issuer ID    | `--issuer-id`        | `AST_ISSUER_ID`    | Issuer ID (required)                                 |
-| Bundle ID    | `--bundle-id, -b`    | `AST_BUNDLE_ID`    | App bundle identifier (required)                     |
-| App Apple ID | `--app-apple-id`     | `AST_APP_APPLE_ID` | Numeric Apple ID of the app                          |
-| Environment  | `--environment, -e`  | `AST_ENVIRONMENT`  | `sandbox` or `production` (default: `production`)    |
-| Certs dir    | `--certs-dir`        | `AST_CERTS_DIR`    | Path to Apple root `.cer` files                      |
-
-If a required setting is missing from all sources, the tool prints an error and suggests running `appstore-tool config`.
 
 ## Usage
 
@@ -71,6 +46,22 @@ appstore-tool notifications history --start-date 2024-01-01
 # Custom columns for any list command
 appstore-tool notifications history --start-date 2024-01-01 --fields type,product_id,storefront
 ```
+
+## Configuration
+
+Settings resolve in order: **CLI flags > environment variables > stored config** (`~/.appstore-tool/config`).
+
+| Setting      | Flag                 | Env Var            | Description                                         |
+|--------------|----------------------|--------------------|-----------------------------------------------------|
+| Key path     | `--key-path, -k`     | `AST_KEY_PATH`     | Path to `.p8` private key file (required)            |
+| Key ID       | `--key-id`           | `AST_KEY_ID`       | API Key ID (required)                                |
+| Issuer ID    | `--issuer-id`        | `AST_ISSUER_ID`    | Issuer ID (required)                                 |
+| Bundle ID    | `--bundle-id, -b`    | `AST_BUNDLE_ID`    | App bundle identifier (required)                     |
+| App Apple ID | `--app-apple-id`     | `AST_APP_APPLE_ID` | Numeric Apple ID of the app                          |
+| Environment  | `--environment, -e`  | `AST_ENVIRONMENT`  | `sandbox` or `production` (default: `production`)    |
+| Certs dir    | `--certs-dir`        | `AST_CERTS_DIR`    | Path to Apple root `.cer` files                      |
+
+If a required setting is missing from all sources, the tool prints an error and suggests running `appstore-tool config`.
 
 ### Output Formats
 
@@ -236,6 +227,18 @@ Shell completions for zsh, bash, and fish are offered during `appstore-tool conf
 - Private key contents are never printed, even with `--verbose` or `--debug`
 - All signed payloads (JWS) from Apple are cryptographically verified against Apple root certificates before display
 - No write or mutation operations -- this tool is strictly read-only
+
+
+## Developing
+
+Requires Xcode with Swift 6 (uses Xcode-managed SPM dependencies).
+
+```bash
+./build           # Release build, copies executable to ./bin/appstore-tool
+./build Debug     # Debug build
+```
+
+The executable is placed at `./bin/appstore-tool`.
 
 ## License
 
